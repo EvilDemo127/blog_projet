@@ -3,7 +3,9 @@
 use Controller\UserController;
 require ("../vendor/autoload.php");
 $datas =new UserController;
-$data=$datas->search($_GET['id']);
+if(!empty($_GET['id'])){
+    $data =$datas->search($_GET['id']);
+}
     if($_POST){
         $updateDate=[
             'id'=>$_POST['id'],

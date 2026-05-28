@@ -1,7 +1,6 @@
 <?php
-    require ("../vendor/autoload.php");
-
-
+require ("../vendor/autoload.php");
+use Controller\UserController;
     if($_POST){
         $userData=[
         'name' =>$_POST['name'],
@@ -19,7 +18,7 @@
 
 <div class="d-flex justify-content-center mt-4">
     <div class="col-md-6">
-        <div class="card shadow">
+        <div class="card shadow p-3">
             <h5 class="card-title text-center bg-dark text-white py-3">
                 <i class="fa-solid fa-user-plus me-2"></i>
                 Create User

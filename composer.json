@@ -2,8 +2,8 @@
     "name": "blog/app",
     "autoload": {
         "psr-4": {
-            "Database\\": "config/database/",
-            "Controller\\": "controller/",
+            "Database\\": "App/database/",
+            "Controller\\": "App/controller/",
             "View\\": "view/",
             "Layout\\": "layout/"
         }

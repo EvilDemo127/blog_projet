@@ -21,19 +21,19 @@
                     <li class="nav-item dropdown list-group-item list-group-item-action bg-dark     text-white  py-3">
                         <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         <i class="fas fa-table"></i>    
-                        Blogs</a>
+                        <span class="d-none d-md-inline">Blogs</span></a>
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../view/blogs.php">Blog</a></li>
-                        <li><a class="dropdown-item" href="../view/addblogs.php">Add Blogs</a></li>
+                        <li><a class="dropdown-item" href="../view/blogs.php"><span class="d-none d-md-inline">Blog</span></a></li>
+                        <li><a class="dropdown-item" href="../view/blogadd.php"><span class="d-none d-md-inline">Add Blogs</span></a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown list-group-item list-group-item-action bg-dark     text-white  py-3">
                         <a class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                         <i class="fas fa-user"></i>    
-                        User</a>
+                        <span class="d-none d-md-inline">User</span></a>
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../view/userlist.php">User List</a></li>
-                        <li><a class="dropdown-item" href="../view/adduser.php">Add User</a></li>
+                        <li><a class="dropdown-item" href="../view/userlist.php"><span class="d-none d-md-inline">User List</span></a></li>
+                        <li><a class="dropdown-item" href="../view/adduser.php"><span class="d-none d-md-inline">Add User</span></a></li>
                         </ul>
                     </li>
                 </div>
