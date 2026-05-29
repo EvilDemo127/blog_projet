@@ -1,4 +1,22 @@
+<?php
+$page_title='addblog';
+require ("../vendor/autoload.php");
+use Database\MySql;
+use Model\BlogTable;
 
+    if($_POST){;
+
+        $data=[
+            'title'=>$_POST['title'],
+            'content'=>$_POST['content'],
+            'image'=>$_FILES['image']
+        ];
+        $blogData =new BlogTable(new MySql());
+        $blogData->addBlog($data);
+    }
+    
+
+?>
 <?php require("../layout/header.php") ?>
 
 <div class="d-flex justify-content-center mt-4">
@@ -8,7 +26,7 @@
             <i class="fas fa-user"></i>    
             Add New Blogs</h5>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="mb-2">
                     <label for="" class="form-label">Title</label>
                     <input type="text" class="form-control" name="title">
@@ -19,7 +37,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="" class="form-label d-block">Image</label>
-                    <input type="file" class="form-control-sm" name="content">
+                    <input type="file" class="form-control-sm" name="image">
                 </div>
                 <button class="btn btn-dark p-2 w-100">Submit</button>
                 </form>

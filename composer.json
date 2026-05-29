@@ -4,13 +4,15 @@
         "psr-4": {
             "Database\\": "App/database/",
             "Controller\\": "App/controller/",
+            "Model\\": "App/model/",
             "View\\": "view/",
             "Layout\\": "layout/"
         }
     },
     "authors": [
         {
-            
+            "name": "app",
+            "email": "app@gmail.com"
         }
     ],
     "require": {}

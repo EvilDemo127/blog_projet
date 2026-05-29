@@ -1,4 +1,5 @@
 <?php
+$page_title='adduser';
 require ("../vendor/autoload.php");
 use Controller\UserController;
     if($_POST){

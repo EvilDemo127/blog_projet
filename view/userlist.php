@@ -1,7 +1,10 @@
 <?php
+$page_title='userlist';
 require("../vendor/autoload.php");
-use Controller\UserController as UserController;
+use Controller\UserController;
 $i = 1;
+
+//start pagination
 $userData = new UserController;
 $totalUsers = $userData->showAllUser(); 
 $limit = 5;
@@ -9,10 +12,17 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 if ($page < 1) $page = 1;
 $offset = ($page - 1) * $limit;
 $total_page = ceil(count($totalUsers) / $limit);
-$users = $userData->showingPagination($limit, $offset); 
+//end pagination
+
 if(!empty($_GET['id'])){
     $userData->delete($_GET['id']);
 }
+if(!empty($_GET['search'])){
+    $users = $userData->searchUser($_GET['search']);
+}else{
+    $users = $userData->showingPagination($limit, $offset); 
+}
+
 ?>
 
 <?php require("../layout/header.php") ?>

@@ -1,7 +1,8 @@
 <?php
 
-namespace Database;
+namespace Model;
 
+use Database\MySql;
 use PDOException;
 
 class UserTable{
@@ -32,7 +33,7 @@ class UserTable{
                 ':name'=>$userData['name'],
                 ':email'=>$userData['email'],
                 ':role'=>$userData['role'],
-                ':password'=>password_hash($userData['password'],PASSWORD_DEFAULT),
+                ':password'=>password_hash($userData['password'],PASSWORD_BCRYPT),
             ]
            );
         }catch(PDOException $e){
@@ -76,11 +77,31 @@ class UserTable{
         }
     }
 
+    public function searchLogin($email){
+        try {
+            $stmt =$this->db->prepare("SELECT * FROM users WHERE email=:email");
+             $stmt->execute([':email'=>$email]);
+            return $stmt->fetch();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function deleteUser($id){
         try {
             $stmt =$this->db->prepare("DELETE FROM users WHERE id=:id");
             $stmt->execute(['id'=>$id]);
         } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function search($search){
+        try {
+            $stmt =$this->db->prepare("SELECT * FROM users WHERE email LIKE :search ORDER BY id DESC");
+            $stmt->execute([':search'=>'%'.$search.'%']);
+            return $stmt->fetchAll();
+        } catch (\Throwable $e) {
             echo $e->getMessage();
         }
     }

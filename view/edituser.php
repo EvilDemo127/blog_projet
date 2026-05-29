@@ -1,5 +1,5 @@
 <?php
-
+$page_title='edituser';
 use Controller\UserController;
 require ("../vendor/autoload.php");
 $datas =new UserController;

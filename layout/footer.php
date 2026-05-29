@@ -3,7 +3,7 @@
 
 
 ?>
-                <?php if(basename($_SERVER['PHP_SELF']) =='userlist.php'): ?>
+                <?php if(isset($page_title) && $page_title =='userlist' || $page_title =='blogs'): ?>
                 <!-- Pagination Area -->
                 <div class="p-3  d-flex justify-content-center pagina ">
                     <nav aria-label="Page navigation example">

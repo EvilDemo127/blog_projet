@@ -1,3 +1,9 @@
+<?
+require ("../vendor/autoload.php");
+    if(isset($_POST)){
+        print_r($_POST['search']);exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,10 +51,10 @@
                 <div>
                     <!-- Top Navbar Area -->
                     <div class="navbar navbar-light bg-light border-bottom px-3 d-flex justify-content-between">
-                        <form action="index.php?action=search" method="post" class="w-50">
+                        <form action="" method="" class="w-50">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search...">
-                                <button type="submit" class="input-group-text bg-white border-start-0">
+                                <button type="submit" class="input-group-text bg-white ">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
                             </div>
