@@ -1,8 +1,7 @@
-<?
-require ("../vendor/autoload.php");
-    if(isset($_POST)){
-        print_r($_POST['search']);exit();
-    }
+<?php 
+if(empty($_SESSION['user_id']) && empty($_SESSION['loggin_in'])){
+    header('location: login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +51,7 @@ require ("../vendor/autoload.php");
                     <!-- Top Navbar Area -->
                     <div class="navbar navbar-light bg-light border-bottom px-3 d-flex justify-content-between">
                         <form action="" method="" class="w-50">
+                            <input type="hidden" name="csrf_token" value="">
                             <div class="input-group">
                                 <input type="text" name="search" class="form-control" placeholder="Search...">
                                 <button type="submit" class="input-group-text bg-white ">
@@ -59,9 +59,8 @@ require ("../vendor/autoload.php");
                                 </button>
                             </div>
                         </form>
-                        <div>
-                            <a href="index.php?action=logout" class="btn btn-danger btn-sm">Logout</a>
-                        </div>
+                            <a href="../view/logout.php" class="btn btn-danger btn-sm">Logout</a>
+                        </form>
                     </div>
                     
                    

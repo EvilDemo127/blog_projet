@@ -25,6 +25,21 @@ class UserTable{
         }
     }
 
+    public function register($userData){
+        try{
+           $stmt = $this->db->prepare("INSERT INTO users (name,email,password) VALUES(:name,:email,:password)");
+           $stmt->execute(
+            [
+                ':name'=>$userData['name'],
+                ':email'=>$userData['email'],
+                ':password'=>password_hash($userData['password'],PASSWORD_DEFAULT),
+            ]
+           );
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
     public function addUserData($userData){
         try{
            $stmt = $this->db->prepare("INSERT INTO users (name,email,role,password) VALUES(:name,:email,:role,:password)");
@@ -33,7 +48,7 @@ class UserTable{
                 ':name'=>$userData['name'],
                 ':email'=>$userData['email'],
                 ':role'=>$userData['role'],
-                ':password'=>password_hash($userData['password'],PASSWORD_BCRYPT),
+                ':password'=>password_hash($userData['password'],PASSWORD_DEFAULT),
             ]
            );
         }catch(PDOException $e){

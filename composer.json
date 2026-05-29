@@ -5,6 +5,7 @@
             "Database\\": "App/database/",
             "Controller\\": "App/controller/",
             "Model\\": "App/model/",
+            "Helper\\": "App/Helper/",
             "View\\": "view/",
             "Layout\\": "layout/"
         }

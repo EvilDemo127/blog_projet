@@ -1,18 +1,27 @@
 <?php
-$page_title='adduser';
-require ("../vendor/autoload.php");
-use Controller\UserController;
-    if($_POST){
-        $userData=[
-        'name' =>$_POST['name'],
-        'email'=>$_POST['email'],
-        'role'=>$_POST['role'] ?? 1 ,
-        'password'=>$_POST['password']
-        ];
+$page_title = 'adduser';
+session_start();
+if (empty($_SESSION['user_id']) && empty($_SESSION['loggin_in'])) {
+    header('location: login.php');
+}
+require("../vendor/autoload.php");
 
-        $data =new UserController;
-        $data->addUser($userData);
-    }
+use Controller\UserController;
+
+if ($_POST) {
+    $userData = [
+        'name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'role' => $_POST['role'] ?? 1,
+        'password' => $_POST['password']
+    ];
+
+    $data = new UserController;
+    $data->addUser($userData);
+}
+if (isset($_GET['logout'])) {
+    session_unset();
+}
 ?>
 
 <?php require("../layout/header.php") ?>
@@ -48,5 +57,3 @@ use Controller\UserController;
         </div>
     </div>
 </div>
-
-

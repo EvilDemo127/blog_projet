@@ -1,7 +1,9 @@
 <?php
 namespace Controller;
-use Model\BlogTable;
+
 use Database\MySql;
+use Model\BlogTable;
+
 
 class BlogController{
     private $table;
@@ -15,7 +17,8 @@ class BlogController{
     }
 
     public function addBlog($data){
-       require $this->table->addBlog($data);
+       $this->table->addBlog($data);
+       header("location: ../view/blogs.php");
     }
 
     public function showBlog(){
