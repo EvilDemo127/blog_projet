@@ -37,10 +37,11 @@ if (isset($_GET['logout'])) {
 <?php require("../layout/header.php") ?>
 
 
-<div class="card">
-    <h1 class="h4 text-center">User List</h1>
-</div>
-<div>
+
+<div class="m-3">
+    <div class="card">
+        <h1 class="h4 text-center">User List</h1>
+    </div>
     <table class="table table-striped table-hover align-middle">
         <thead class="table-dark">
             <tr>

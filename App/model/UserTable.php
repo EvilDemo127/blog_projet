@@ -86,7 +86,7 @@ class UserTable{
         try {
             $stmt =$this->db->prepare("SELECT * FROM users WHERE id=:id");
              $stmt->execute([':id'=>$id]);
-            return $stmt->fetch();
+            return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

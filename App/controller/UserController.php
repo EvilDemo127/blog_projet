@@ -22,8 +22,32 @@ class UserController
 
     public function addUser($data)
     {
-        $this->table->addUserData($data);
-        header("location: /view/userlist.php");
+
+        $user =$this->table->search($data['email']);
+        if (empty($data['name']) || empty($data['email']) || empty($data['password']) || strlen($data['password']) < 6 || !empty($user)) {
+            $err = [];
+            if (empty($data['name'])) {
+                $err['name'] = "* Name can;t be empty";
+                return $err;
+            }
+            if (empty($data['email'])) {
+                $err['email'] = "* Email can;t be empty";
+                return $err;
+            }
+            if (empty($data['password'])) {
+                $err['password'] = "* Password can;t be empty";
+                return $err;
+            }
+            if (strlen($data['password']) < 6) {
+                $err['password'] = "* Password at last 6";
+                return $err;
+            }if(!empty($user)){
+                echo "<script>alert('Name and Email already used');</script>";
+            }
+        } else {
+            $this->table->addUserData($data);
+            header("location: ../view/userlist.php");
+        }
     }
 
     public function showAllUser()
@@ -77,5 +101,4 @@ class UserController
             }
         }
     }
-
 }

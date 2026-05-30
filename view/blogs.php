@@ -27,18 +27,20 @@ if (isset($_GET['search'])) {
 
 ?>
 <?php require("../layout/header.php") ?>
-<h4 class="card-heard text-center">Blogs</h4>
-<div class="d-flex flex-wrap gap-3">
-    <?php foreach ($datas as $data): ?>
-        <a class="text-decoration-none" href="blogdetails.php?id=<?= $data->id ?>">
-            <div class="card text-center" style="width: 300px; height: 300px;">
-                <img src="../public/assets/images/<?= $data->image ?> " alt="<?= $data->image ?>" class="card-image">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $data->title ?></h5>
-                    <p class="card-text"><?= substr($data->content, 0, 50) ?></p>
+<div class="ms-5">
+    <h4 class="card-heard text-center">Blogs</h4>
+    <div class="d-flex flex-wrap gap-3">
+        <?php foreach ($datas as $data): ?>
+            <a class="text-decoration-none" href="blogdetails.php?id=<?= $data->id ?>">
+                <div class="card text-center" style="width: 300px; height: 300px;">
+                    <img src="../public/assets/images/<?= $data->image ?> " alt="<?= $data->image ?>" class="card-image">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $data->title ?></h5>
+                        <p class="card-text"><?= substr($data->content, 0, 50) ?></p>
+                    </div>
                 </div>
-            </div>
-        </a>
-    <?php endforeach ?>
+            </a>
+        <?php endforeach ?>
+    </div>
 </div>
 <?php require("../layout/footer.php") ?>

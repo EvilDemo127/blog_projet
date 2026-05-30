@@ -17,11 +17,9 @@ if ($_POST) {
     ];
 
     $data = new UserController;
-    $data->addUser($userData);
+    $errCatch = $data->addUser($userData);
 }
-if (isset($_GET['logout'])) {
-    session_unset();
-}
+
 ?>
 
 <?php require("../layout/header.php") ?>
@@ -36,14 +34,17 @@ if (isset($_GET['logout'])) {
             <div class="card-body">
                 <form action="" method="post">
                     <div class="mb-3">
+                        <p class="text-danger"><?= $errCatch['name'] ?? ""  ?></p>
                         <label for="" class="form-label">Name</label>
                         <input type="text" class="form-control" name="name">
                     </div>
                     <div class="mb-3">
+                        <p class="text-danger"><?= $errCatch['email'] ?? ""  ?></p>
                         <label for="" class="form-label">Email</label>
                         <input type="email" class="form-control" name="email">
                     </div>
                     <div class="mb-3">
+                        <p class="text-danger"><?= $errCatch['password'] ?? "" ?></p>
                         <label for="" class="form-label">Password</label>
                         <input type="password" class="form-control" name="password">
                     </div>
